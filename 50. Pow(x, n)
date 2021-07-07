@@ -1,0 +1,18 @@
+class Solution:
+    def myPow(self, x: float, n: int) -> float:
+        import math
+        import numpy
+        if n == 0:
+            return 1
+        if n == 1:
+            return x
+        if x == 0:
+            return 0
+        else:
+            if x > 0:
+                return(math.exp(n *numpy.log(x) ))
+            if x < 0:
+                if n%2 == 0:
+                    return(math.exp(n *numpy.log(-x) ))
+                else:
+                    return(-1 *(math.exp(n *numpy.log(-x) )))
