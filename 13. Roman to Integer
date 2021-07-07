@@ -1,0 +1,24 @@
+class Solution:
+    def romanToInt(self, s: str) -> int:
+        symbol = ['I', 'V', 'X', 'L', 'C', 'D', 'M']
+        values = [1, 5, 10, 50, 100, 500, 1000]
+        result = 0
+        temp = 0
+        for i in range(0, len(s)):
+            if i < len(s) - 1 and (s[i] == 'I' and s[i+1] == 'X'):
+                result = result -1
+            elif i < len(s) - 1 and (s[i] == 'I' and s[i+1] == 'V'):
+                result = result -1   
+            elif i < len(s) - 1 and (s[i] == 'X' and s[i+1] == 'L'):
+                result = result -10  
+            elif i < len(s) - 1 and (s[i] == 'X' and s[i+1] == 'C'):
+                result = result -10  
+            elif i < len(s) - 1 and (s[i] == 'C' and s[i+1] == 'D'):
+                result = result -100  
+            elif i < len(s) - 1 and (s[i] == 'C' and s[i+1] == 'M'):
+                result = result -100
+            else:
+                temp = symbol.index(s[i])
+                result = result + values[temp]
+            print(s[i], values[temp])
+        return result
