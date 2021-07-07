@@ -1,0 +1,34 @@
+class Solution:
+    def reverse(self, x: int) -> int:
+        
+        if x > 2 ** 31 or x < -2 ** 31 -1:
+            return 0
+        
+        dig = [x for x in range(0, 10)]
+        if x in dig:
+            return x
+            
+        rev = [j for j in str(x)]
+        rev.reverse()
+        
+        solution = 0
+        
+        if rev[-1] == '-':
+            rev.remove(rev[-1])
+            print(rev)
+            str_solution = ''.join(rev)
+            solution = int(str_solution)
+            solution = solution * -1
+            if solution >  -2 ** 31 :
+                return solution 
+            else:
+                return 0
+        
+        else:
+            print(rev)
+            str_solution = ''.join(rev)
+            solution = int(str_solution)
+            if solution < 2**31:
+                return solution
+            else:
+                return 0
