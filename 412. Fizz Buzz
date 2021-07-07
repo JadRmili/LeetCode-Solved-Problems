@@ -1,0 +1,15 @@
+class Solution:
+    def fizzBuzz(self, n: int) -> List[str]:
+        
+        answer = []
+        if 0 < n < pow(10,40) + 1:
+            for i in range(0, n+1): #the index starts from 1 so we must neglect answer[0]
+                if (i%3 == 0 and i%5 == 0):
+                    answer.append('FizzBuzz')
+                elif i%3 ==0:
+                    answer.append('Fizz')
+                elif i%5 == 0:
+                    answer.append('Buzz')
+                else:
+                    answer.append(str(i))
+        return answer[1:]#neglecting answer[0]
