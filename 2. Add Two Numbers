@@ -1,0 +1,51 @@
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
+        #Turning first node to list:
+        l1_list =[]
+        l2_list = []
+        temp1 = l1.next
+        temp2 = l1
+        while temp1 != None:
+            l1_list.append(temp2.val)
+            temp2 = temp1
+            temp1 = temp1.next
+        l1_list.append(temp2.val)
+        
+        #Turning second node to list:
+        temp1 = l2.next
+        temp2 = l2
+        while temp1 != None:
+            l2_list.append(temp2.val)
+            temp2 = temp1
+            temp1 = temp1.next
+        l2_list.append(temp2.val)
+        
+        sum1 = 0
+        sum2 = 0
+        for i in range(len(l1_list)-1,-1, -1):
+            sum1 = sum1 + pow(10, i) * l1_list[i]
+        for i in range(len(l2_list)-1,-1, -1):
+            sum2 = sum2 + pow(10, i) * l2_list[i]
+        summ = str(sum2 + sum1)
+        
+        rever = [int(x) for x in summ]
+        
+        result = [rever[i] for i in range(len(rever)-1, -1, -1)]
+        
+        #node:
+        head = ListNode(result[0])
+        tail = head 
+        e = 1
+        while e < len(result):
+            tail.next = ListNode(result[e])
+            tail = tail.next
+            e+=1
+        
+            
+        return head
+            
